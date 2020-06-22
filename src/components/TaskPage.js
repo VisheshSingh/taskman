@@ -13,7 +13,11 @@ const TaskPage = ({ tasks }) => {
   const renderTaskLists = () => {
     return TASK_STATUSES.map((status, idx) => {
       const statusTasks = tasks.filter((task) => task.status === status);
-      return <TaskList key={idx} tasks={statusTasks} />;
+      return (
+        <div className='col-md-3 card m-3 p-0'>
+          <TaskList key={idx} status={status} tasks={statusTasks} />
+        </div>
+      );
     });
   };
 

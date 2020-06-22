@@ -9,7 +9,13 @@ const initialState = [
     id: 2,
     title: 'Learn Redux',
     description: 'A popular state management library',
-    status: 'In Progress',
+    status: 'Todo',
+  },
+  {
+    id: 3,
+    title: 'Learn MERN',
+    description: 'Full Stack development',
+    status: 'Completed',
   },
 ];
 
