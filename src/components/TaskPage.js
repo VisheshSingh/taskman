@@ -3,8 +3,7 @@ import TaskList from './TaskList';
 
 export const TASK_STATUSES = ['Todo', 'In Progress', 'Completed'];
 
-const TaskPage = ({ tasks, onStatusChange }) => {
-  console.log({ tasks });
+const TaskPage = ({ tasks, onStatusChange, onCreateTask }) => {
   const [showForm, setShowForm] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -15,7 +14,7 @@ const TaskPage = ({ tasks, onStatusChange }) => {
     return TASK_STATUSES.map((status, idx) => {
       const statusTasks =
         tasks && tasks.filter((task) => task.status === status);
-      console.log({ statusTasks });
+
       return (
         <div className='col-md-3 card m-3 p-0' key={idx}>
           <TaskList
@@ -26,6 +25,13 @@ const TaskPage = ({ tasks, onStatusChange }) => {
         </div>
       );
     });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onCreateTask(title, description);
+    setTitle('');
+    setDescription('');
   };
 
   return (
@@ -42,7 +48,7 @@ const TaskPage = ({ tasks, onStatusChange }) => {
           </div>
         </div>
         {showForm && (
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className='form-group'>
               <input
                 type='text'

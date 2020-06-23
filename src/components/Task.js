@@ -1,9 +1,12 @@
 import React from 'react';
 import { TASK_STATUSES } from './TaskPage';
 
-const Task = ({ task: { id, title, description, status }, onStatusChange }) => {
+const Task = ({
+  task: { id, title, description, status },
+  onStatusChange,
+  onCreateTask,
+}) => {
   const handleSubmit = (e) => {
-    console.log(id, e.target.value);
     onStatusChange(id, e.target.value);
   };
   return (
