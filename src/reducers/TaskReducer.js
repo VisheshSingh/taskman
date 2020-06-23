@@ -19,6 +19,19 @@ const initialState = [
   },
 ];
 
-export default (state = initialState, action) => {
+export default (state = { tasks: initialState }, action) => {
+  if (action.type === 'EDIT TASK') {
+    return {
+      tasks: state.tasks.map((task) => {
+        if (task.id === action.payload.id) {
+          return {
+            ...task,
+            ...action.payload.params,
+          };
+        }
+        return task;
+      }),
+    };
+  }
   return state;
 };

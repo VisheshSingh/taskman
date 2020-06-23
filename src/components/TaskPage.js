@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import TaskList from './TaskList';
 
-const TASK_STATUSES = ['Todo', 'In Progress', 'Completed'];
+export const TASK_STATUSES = ['Todo', 'In Progress', 'Completed'];
 
-const TaskPage = ({ tasks }) => {
+const TaskPage = ({ tasks, onStatusChange }) => {
+  console.log({ tasks });
   const [showForm, setShowForm] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -12,10 +13,16 @@ const TaskPage = ({ tasks }) => {
 
   const renderTaskLists = () => {
     return TASK_STATUSES.map((status, idx) => {
-      const statusTasks = tasks.filter((task) => task.status === status);
+      const statusTasks =
+        tasks && tasks.filter((task) => task.status === status);
+      console.log({ statusTasks });
       return (
-        <div className='col-md-3 card m-3 p-0'>
-          <TaskList key={idx} status={status} tasks={statusTasks} />
+        <div className='col-md-3 card m-3 p-0' key={idx}>
+          <TaskList
+            status={status}
+            tasks={statusTasks}
+            onStatusChange={onStatusChange}
+          />
         </div>
       );
     });

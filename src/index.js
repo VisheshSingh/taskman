@@ -6,7 +6,10 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import TaskReducer from './reducers/TaskReducer';
 
-const store = createStore(TaskReducer);
+const store = createStore(
+  TaskReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <React.StrictMode>
