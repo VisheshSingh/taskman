@@ -68,7 +68,11 @@ const TaskPage = ({ tasks, onStatusChange, onCreateTask, onRemoveTask }) => {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
-            <button type='submit' className='btn btn-warning'>
+            <button
+              type='submit'
+              className='btn btn-warning'
+              disabled={!title && !description}
+            >
               Submit
             </button>
           </form>

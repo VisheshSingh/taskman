@@ -1,0 +1,26 @@
+select {
+  width: 90%;
+  margin: 0 auto !important;
+  display: block;
+  height: 50px;
+  font-size: 100%;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0;
+  background-color: #c0392b;
+  border: none;
+  border-bottom: 2px solid #962d22;
+  color: white;
+  padding: 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 10px;
+}
+
+select:hover,
+select:focus {
+  color: #c0392b;
+  background-color: white;
+  border-bottom-color: #dcdcdc;
+}

@@ -13,7 +13,7 @@ const Task = ({
   return (
     <div>
       <form onChange={handleSubmit}>
-        <select defaultValue={status}>
+        <select defaultValue={status} className='dropdown'>
           {TASK_STATUSES.map((stat) => (
             <option value={stat} key={stat}>
               {stat}

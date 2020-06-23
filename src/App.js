@@ -2,6 +2,7 @@ import React from 'react';
 import TaskPage from './components/TaskPage';
 import { connect } from 'react-redux';
 import { EditTask, CreateTask, RemoveTask } from './actions/TaskAction';
+import './style.css';
 
 function App({ tasks, editTask, createTask, removeTask }) {
   return (
