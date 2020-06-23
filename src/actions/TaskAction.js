@@ -1,4 +1,4 @@
-import { EDIT_TASK, CREATE_TASK } from './types';
+import { EDIT_TASK, CREATE_TASK, REMOVE_TASK } from './types';
 
 export const EditTask = (id, params = {}) => {
   return {
@@ -18,6 +18,15 @@ export const CreateTask = (title, description) => {
       title,
       description,
       status: 'Todo',
+    },
+  };
+};
+
+export const RemoveTask = (id) => {
+  return {
+    type: REMOVE_TASK,
+    payload: {
+      id,
     },
   };
 };

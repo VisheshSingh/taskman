@@ -1,3 +1,4 @@
+import { CREATE_TASK, EDIT_TASK, REMOVE_TASK } from '../actions/types';
 const initialState = [
   // {
   //   id: 1,
@@ -20,7 +21,7 @@ const initialState = [
 ];
 
 export default (state = { tasks: initialState }, action) => {
-  if (action.type === 'EDIT TASK') {
+  if (action.type === EDIT_TASK) {
     return {
       tasks: state.tasks.map((task) => {
         if (task.id === action.payload.id) {
@@ -34,10 +35,17 @@ export default (state = { tasks: initialState }, action) => {
     };
   }
 
-  if (action.type === 'CREATE TASK') {
+  if (action.type === CREATE_TASK) {
     return {
       tasks: [...state.tasks, { ...action.payload }],
     };
   }
+
+  if (action.type === REMOVE_TASK) {
+    return {
+      tasks: state.tasks.filter((task) => task.id !== action.payload.id),
+    };
+  }
+
   return state;
 };

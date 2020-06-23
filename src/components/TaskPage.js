@@ -3,7 +3,7 @@ import TaskList from './TaskList';
 
 export const TASK_STATUSES = ['Todo', 'In Progress', 'Completed'];
 
-const TaskPage = ({ tasks, onStatusChange, onCreateTask }) => {
+const TaskPage = ({ tasks, onStatusChange, onCreateTask, onRemoveTask }) => {
   const [showForm, setShowForm] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -21,6 +21,7 @@ const TaskPage = ({ tasks, onStatusChange, onCreateTask }) => {
             status={status}
             tasks={statusTasks}
             onStatusChange={onStatusChange}
+            onRemoveTask={onRemoveTask}
           />
         </div>
       );

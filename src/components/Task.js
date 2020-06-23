@@ -4,11 +4,12 @@ import { TASK_STATUSES } from './TaskPage';
 const Task = ({
   task: { id, title, description, status },
   onStatusChange,
-  onCreateTask,
+  onRemoveTask,
 }) => {
   const handleSubmit = (e) => {
     onStatusChange(id, e.target.value);
   };
+
   return (
     <div>
       <form onChange={handleSubmit}>
@@ -24,6 +25,12 @@ const Task = ({
       <p className='card-text  text-center mb-2 px-2 text-muted'>
         {description}
       </p>
+      <button
+        className='btn btn-danger float-right m-2'
+        onClick={() => onRemoveTask(id)}
+      >
+        &times;
+      </button>
     </div>
   );
 };

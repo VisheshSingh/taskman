@@ -1,7 +1,7 @@
 import React from 'react';
 import Task from './Task';
 
-const TaskList = ({ tasks, status, onStatusChange }) => {
+const TaskList = ({ tasks, status, onStatusChange, onRemoveTask }) => {
   return (
     <div>
       <div className='card-header text-uppercase text-center font-weight-bold'>
@@ -9,7 +9,12 @@ const TaskList = ({ tasks, status, onStatusChange }) => {
       </div>
       {tasks &&
         tasks.map((task) => (
-          <Task key={task.id} task={task} onStatusChange={onStatusChange} />
+          <Task
+            key={task.id}
+            task={task}
+            onStatusChange={onStatusChange}
+            onRemoveTask={onRemoveTask}
+          />
         ))}
     </div>
   );
